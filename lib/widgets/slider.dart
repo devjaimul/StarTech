@@ -10,7 +10,7 @@ CarouselSlider customCarouselSlider(List<String> sliders) {
       itemBuilder: (context, index, realIndex) {
         return Container(
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10),
+            borderRadius: BorderRadius.circular(15),
             color: AppColors.appBarColors,
             image:
             DecorationImage(image: NetworkImage(sliders[index]),fit: BoxFit.cover),
