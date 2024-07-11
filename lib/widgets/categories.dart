@@ -74,7 +74,7 @@ class Categories extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Image(image: NetworkImage(items[index]['icon'])),
+                  Image(image: NetworkImage(items[index]['icon']),width: 40,),
                   const SizedBox(height: 5,),
                   HeadingTwo(data: items[index]['name'],fontSize: 16,),
                 ],

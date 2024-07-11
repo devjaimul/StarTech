@@ -8,6 +8,7 @@ import 'package:startech/widgets/custom_button.dart';
 import 'package:startech/widgets/custom_card.dart';
 import 'package:startech/methods/custom_marque.dart';
 import 'package:startech/methods/slider.dart';
+import 'package:startech/widgets/products.dart';
 import 'package:startech/widgets/text_field.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -118,6 +119,8 @@ class HomeScreen extends StatelessWidget {
               HeadingTwo(data: 'Check & Get Your Desired Product!',
                 fontSize: 14,color: Colors.black.withOpacity(0.4),
                 fontWeight: FontWeight.normal,),
+              const SizedBox(height: 15,),
+              Products(),
             ],
           ),
         ),
