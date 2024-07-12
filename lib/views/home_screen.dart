@@ -3,6 +3,7 @@ import 'package:startech/utils/colors.dart';
 import 'package:startech/utils/style.dart';
 
 import 'package:startech/methods/appbar.dart';
+
 import 'package:startech/widgets/categories.dart';
 import 'package:startech/widgets/custom_button.dart';
 import 'package:startech/widgets/custom_card.dart';
@@ -11,11 +12,17 @@ import 'package:startech/methods/slider.dart';
 import 'package:startech/widgets/products.dart';
 import 'package:startech/widgets/text_field.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
   @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  @override
   Widget build(BuildContext context) {
+int currentIndex=0;
     List<String> sliders = [
       'https://www.startech.com.bd/image/cache/catalog/home/banner/eid-mobile-fest.ai-banner-982x500.webp',
       'https://www.startech.com.bd/image/cache/catalog/home/banner/MSI-Back-to-School--Offer-982x500.webp',
@@ -120,11 +127,33 @@ class HomeScreen extends StatelessWidget {
                 fontSize: 14,color: Colors.black.withOpacity(0.4),
                 fontWeight: FontWeight.normal,),
               const SizedBox(height: 15,),
-              Products(),
+              const Products(),
+
             ],
           ),
         ),
       ),
+      bottomNavigationBar:BottomNavigationBar(
+          backgroundColor: AppColors.appBarColors,
+          selectedItemColor: Colors.white,
+          showUnselectedLabels: true,
+          unselectedItemColor: Colors.white.withOpacity(0.5),
+          type: BottomNavigationBarType.fixed,
+          currentIndex: currentIndex,
+          // showUnselectedLabels: true,
+          onTap: (value) {
+            setState(() {
+
+              currentIndex=value;
+            });
+          },
+          items:  const [
+            BottomNavigationBarItem(icon: Icon(Icons.card_giftcard_outlined),label: 'Offers'),
+            BottomNavigationBarItem(icon: Icon(Icons.local_fire_department),label: 'Happy Hours'),
+            BottomNavigationBarItem(icon: Icon(Icons.laptop),label: 'Pc Builder'),
+            BottomNavigationBarItem(icon: Icon(Icons.view_compact_alt_outlined),label: 'Compare'),
+            BottomNavigationBarItem(icon: Icon(Icons.person),label: 'Account'),
+          ]),
     );
   }
 
